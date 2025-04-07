@@ -2,10 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { FormGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
+import Form from 'react-bootstrap/Form';
 import { useParams } from 'react-router';
 export default function Editdata() {
-    let id = useParams().id
+    let id = useParams().id;
     const [name, setname] = useState("");
     const [age, setage] = useState("");
     const [image, setimage] = useState(null);
@@ -13,6 +13,7 @@ export default function Editdata() {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                console.log(id);
                 const response = await axios.get(`http://localhost:5167/api/Product/${id}`, {
                     headers: {
                         Accept: "application/json",
